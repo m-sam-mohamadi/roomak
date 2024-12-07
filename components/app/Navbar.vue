@@ -20,26 +20,6 @@
 </template>
 
 <script setup>
-const links = ref([
-  {
-    text: "خانه",
-    url: "/",
-    id: 0,
-  },
-  {
-    text: "نمایندگی ها",
-    url: "/1",
-    id: 1,
-  },
-  {
-    text: "محصولات",
-    url: "/2",
-    id: 2,
-  },
-  {
-    text: "تماس باما",
-    url: "/3",
-    id: 3,
-  },
-]);
+import {Urls} from '@/services/urls'
+const links = Urls
 </script>
