@@ -1,0 +1,201 @@
+@use "base";
+
+@font-face {
+  font-family: samim;
+  src: url(../fonts/Samim.ttf);
+}
+
+body,
+html {
+  // background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  font-family: samim;
+  //   color-scheme: light;
+}
+body {
+  //   height: 140vh;
+  direction: rtl;
+}
+body::before {
+  content: " ";
+  //   display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  background-image: url(@/assets/images/bg2.png);
+  background-repeat: repeat;
+  background-position: 50%;
+  background-size: 50%;
+  background-attachment: local;
+  z-index: -1;
+}
+.toolbar {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 93% !important;
+  z-index: 999;
+  top: 1%;
+  backdrop-filter: blur(10px) !important;
+  background-color: rgba($color: base.$p-primary-400, $alpha: 0.8) !important;
+}
+* {
+  color-scheme: light;
+}
+a {
+  unicode-bidi: isolate;
+  direction: rtl;
+  text-align: right;
+}
+.url {
+  color: base.$p-primary-950;
+  text-decoration: none;
+  transition: 0.25s;
+  cursor: pointer;
+  &.active {
+    color: base.$p-primary-50;
+  }
+  &:hover {
+    color: base.$p-primary-950;
+  }
+}
+
+.p-toolbar {
+  backdrop-filter: blur(5px);
+}
+
+.p-button {
+  border-radius: 10px !important;
+}
+
+.p-button-secondary:hover {
+  color: #fff !important;
+}
+@keyframes example {
+  from {
+    top: 75%;
+  }
+  to {
+    top: 10%;
+    // height: 20px;
+  }
+}
+
+/* The element to apply the animation to */
+.dot {
+  background-color: red;
+  animation-name: example;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.top-heading {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    width: fit-content;
+    position: relative;
+
+    &::after,
+    &::before {
+      content: "";
+      width: 40px;
+      height: 3px;
+      background-color: base.$p-primary-950;
+      position: absolute;
+      top: 50%;
+      transform: translateX(-50%);
+    }
+    &::before {
+      left: -40%;
+      transform: translateX(40%);
+    }
+    &::after {
+      right: -25%;
+      transform: translateX(25%);
+    }
+  }
+}
+
+.line {
+  width: 30px;
+  height: 3px;
+  //   background: base.$p-primary-950;
+  border-radius: 100px;
+}
+
+.home-status {
+  height: max-content;
+  width: 100%;
+  background: base.$p-primary-950;
+  margin-top: 160px;
+  margin-bottom: 160px;
+  padding-bottom: 50px;
+  position: relative;
+  filter: url(#round);
+  &:before {
+    // filter: url(#round);
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    background: base.$p-primary-950;
+    height: 130%;
+
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    width: 100%;
+    @media (max-width: 760px) {
+      height: 110%;
+    }
+  }
+}
+.status-card {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  &:before {
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: base.$p-primary-400;
+    z-index: -1;
+    border-radius: theme("borderRadius.xl");
+    transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  &:hover:before {
+    top: 0px;
+    left: 0px;
+  }
+}
+
+.opacity-background {
+  background-image: linear-gradient(to bottom, #00000000, #000000c7);
+}
+
+.product-card {
+  position: relative;
+  .product-detail {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    background-color: base.$p-primary-700;
+    transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+  &:hover .product-detail {
+    bottom: 0%;
+  }
+}
